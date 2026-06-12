@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "_comment": "프로젝트 로컬 설정. 글로벌 ~/.claude/settings.json 과 별개. 본 프로젝트에서만 적용.",
+  "permissions": {
+    "allow": [
+      "Bash(cd /Users/hsj910/Desktop/CHAT/**)",
+      "Bash(ls /Users/hsj910/Desktop/CHAT/**)",
+      "Bash(mkdir -p /Users/hsj910/Desktop/CHAT/**)",
+      "Bash(python3 -m venv /Users/hsj910/Desktop/CHAT/backend/.venv)",
+      "Bash(/Users/hsj910/Desktop/CHAT/backend/.venv/bin/**)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(git diff*)",
+      "Bash(git status*)"
+    ],
+    "deny": [
+      "Bash(npm i -g*)",
+      "Bash(npm install -g*)",
+      "Bash(pip install*)",
+      "Bash(pip3 install*)",
+      "Bash(rm -rf /Users/hsj910/Desktop/CHAT/.claude*)",
+      "Bash(rm -rf ~/.claude*)",
+      "Write(/Users/hsj910/.claude/**)",
+      "Edit(/Users/hsj910/.claude/**)"
+    ]
+  }
+}

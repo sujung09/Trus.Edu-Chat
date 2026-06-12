@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>StudyGroup: UI Design</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#e6e0e9",
+                    "surface-container-low": "#1d1b20",
+                    "primary-fixed-dim": "#cfbcff",
+                    "on-tertiary": "#3e2e00",
+                    "secondary": "#cdc0e9",
+                    "background": "#141218",
+                    "surface-container-highest": "#36343a",
+                    "on-tertiary-container": "#503d00",
+                    "primary-container": "#6750a4",
+                    "surface-bright": "#3b383e",
+                    "on-surface-variant": "#cbc4d2",
+                    "tertiary-container": "#c9a74d",
+                    "on-tertiary-fixed-variant": "#594400",
+                    "surface": "#141218",
+                    "surface-tint": "#cfbcff",
+                    "inverse-primary": "#6750a4",
+                    "secondary-fixed": "#e9ddff",
+                    "tertiary-fixed-dim": "#e7c365",
+                    "surface-container-lowest": "#0f0d13",
+                    "outline-variant": "#494551",
+                    "on-secondary-fixed": "#1f1635",
+                    "on-primary": "#381e72",
+                    "on-primary-container": "#e0d2ff",
+                    "tertiary-fixed": "#ffdf93",
+                    "surface-variant": "#36343a",
+                    "primary": "#cfbcff",
+                    "on-surface": "#e6e0e9",
+                    "error-container": "#93000a",
+                    "error": "#ffb4ab",
+                    "tertiary": "#e7c365",
+                    "inverse-surface": "#e6e0e9",
+                    "on-primary-fixed-variant": "#4f378a",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed": "#22005d",
+                    "on-secondary": "#342b4b",
+                    "on-secondary-fixed-variant": "#4b4263",
+                    "surface-container-high": "#2b292f",
+                    "on-tertiary-fixed": "#241a00",
+                    "outline": "#948e9c",
+                    "surface-container": "#211f24",
+                    "primary-fixed": "#e9ddff",
+                    "on-secondary-container": "#bfb2da",
+                    "secondary-container": "#4d4465",
+                    "surface-dim": "#141218",
+                    "inverse-on-surface": "#322f35",
+                    "on-error": "#690005",
+                    "secondary-fixed-dim": "#cdc0e9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "unit": "4px",
+                    "sm": "8px",
+                    "xl": "40px",
+                    "container_padding": "16px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "gutter": "12px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "code-sm": ["JetBrains Mono"],
+                    "headline-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "code-sm": ["13px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            color: #e6e0e9;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-header {
+            background: rgba(20, 18, 24, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        .story-ring {
+            background: linear-gradient(45deg, #cfbcff, #6750a4, #e7c365);
+            padding: 2px;
+        }
+        .tutor-glow {
+            border: 1px solid rgba(207, 188, 255, 0.3);
+            background: linear-gradient(to right, rgba(103, 80, 164, 0.1), transparent);
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .chat-input-shadow {
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-md py-sm bg-surface/70 dark:bg-surface/70 backdrop-blur-xl border-b border-white/10">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary/20">
+<img alt="Group avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDojJ04t8oL_68bYv2LYgT0z_Uhm1GEuJTggK8wTJOmvWGOFZg4r1QjRi7T9ownE7qfAQECtN9Eh7cmG6KVZ-KkQ4gGYzMfhABb464kLVh9THFCmRhxzL_p4gbk6MwxJXBLcjq4Z0FaVMfA6baP4rRDniKNQjsM_W9WzH1qCFh-9ZsHztul3EcHbWZQfChr8qLUr2UKj0l_pTxtERFeym354xuQmy1vNX1d-TStIry5G0ePJedUWbiEV1su6t3QZlKSgDauIsb_n5A"/>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm text-primary dark:text-primary">StudyGroup: UI Design</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">12 students online</p>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-primary">search</span>
+</button>
+</header>
+<main class="flex-1 pt-20 pb-40">
+<!-- Active Participants (Story Layout) -->
+<section class="py-md overflow-x-auto scrollbar-hide flex gap-md px-md border-b border-white/5">
+<div class="flex flex-col items-center gap-xs shrink-0">
+<div class="story-ring rounded-full">
+<div class="bg-black p-[2px] rounded-full">
+<img alt="Alex" class="w-14 h-14 rounded-full object-cover" data-alt="A professional headshot of a young male designer with a warm smile, set against a soft-focus studio background. The lighting is crisp and modern, reflecting a clean tech-startup aesthetic with cool blue and purple ambient tones. High-fidelity photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeIg9GULpG0d-8QTmvJesF_sV53DHswpeBxDBskr-qyfoeBEn-0ij_6RYkSvmZCKkrzqF9zeZxmmLL7UhFP4JJT_MB5GghH-XgIQXYy_fHedYD65qv07mPrKLjdyHw1ep5wqlCzrYXqgLOCWYHW6CljOcIf8P8WY1hZk4Tr3SGC-vsbspDd3iCVXkQsnnw8V-vRLko2iitf1Kzw5ds_H9G5VTjSkeX2YuVUH63r8s5ahaFFYPWICOdih_29Q3vU0Hh1SrfgdWf1KA"/>
+</div>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Alex</span>
+</div>
+<div class="flex flex-col items-center gap-xs shrink-0">
+<div class="story-ring rounded-full">
+<div class="bg-black p-[2px] rounded-full">
+<img alt="Maya" class="w-14 h-14 rounded-full object-cover" data-alt="A portrait of a young female student with glasses, looking thoughtfully at a screen off-camera. The lighting is warm and cinematic, featuring subtle purple rim lights that match a dark-mode UI aesthetic. The mood is focused and academic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe8jZI4DIrkw1_MWvlek9bfo8nNRl4scqEFMqa9aUlmJdiVIPOC4dRJGQ4hX_Mx9QfNLFOPY68Hn67fRjbM3znOKZGmhlA-jt1OBLecfodykvAy1qZaA_yp5CQIMx6_DOiyaCYEt6j_pJVtSKQSVrIOuqwcH_EYNvgEtRbT7ESzcfINy4vYaeLMap0Cj7OgtQdS9gX8gFNpg1uEuonLdXe61UKIf-lZmcILYLRflIlj0QA8pUfmX1mD26fJtqXMi5pSWubsoWi6LQ"/>
+</div>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Maya</span>
+</div>
+<div class="flex flex-col items-center gap-xs shrink-0">
+<div class="bg-outline-variant/30 p-[3px] rounded-full">
+<img alt="Jordan" class="w-14 h-14 rounded-full object-cover" data-alt="A close-up portrait of a male creative professional in a dark studio. Soft, colorful gradient lighting in shades of amber and violet illuminates his face from the side. The style is minimalist and high-end, suitable for a premium educational platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg7_zLIY4bGGgPtUSfQvybqIpROoeKfw94izY0FQcK3lptbykI4QOFyQZAUM7J0W1pE4McEQnyhkAHxf8gdLNpZ_sGrdVmpUcyTgVpqc2dcTUwCRq9AX118JduAta2-ua4_QAFApbu5as8mYsEki-BWTr6Sj9N7GtY6nVKKpnaTsEeCMswGSMFxc8ZG_WnJjM2t9Pl3Yt6v42vetcsauAOYgNUUqnbk061MhXJqgvXJqz50hTXTjoWv0KBUGMRrHI1NaxrZuSBZ-M"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Jordan</span>
+</div>
+<div class="flex flex-col items-center gap-xs shrink-0">
+<div class="story-ring rounded-full">
+<div class="bg-black p-[2px] rounded-full">
+<img alt="Sarah" class="w-14 h-14 rounded-full object-cover" data-alt="A sharp, professional portrait of a woman in a modern office environment with blurred lights in the background. The color palette is dominated by deep blacks and bright primary-fixed highlights. The mood is confident and knowledgeable, representing an expert educator." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV9Ygk29xXroBLJREP2S50DzXRvx6_tfh89PfPMdXaPVogKLNmcmM6MxuKv60VviDNJa_Vu_DfuXexRwSX3mEm5QM9o9-avByx_LZw7rR3BCugU5T1bj6BAIbSs1-e9eHUFVz4DR2GYMa2fpYF9VQh-F4Q3hZokbbce6cIoZrJT-FjDukeJu9FKgeu0n948V9NW9j_GX9Fq4_XsKcM5DGEzxad2I6Bqrjh0RjboRjExVQjetng5dfyQZxWNMQXBM9DqnNEtNhofxk"/>
+</div>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Sarah</span>
+</div>
+<div class="flex flex-col items-center gap-xs shrink-0">
+<div class="bg-outline-variant/30 p-[3px] rounded-full">
+<img alt="Chris" class="w-14 h-14 rounded-full object-cover" data-alt="A casual but high-quality portrait of a young man in a minimalist setting. The lighting is natural but enhanced with a soft glowing aesthetic common in high-end social applications. Muted tones and deep shadows emphasize a dark-mode theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3ZDYSEUvk_44Qgmn8xbNC5mOQsugIlbDdmtTh33wwri0cTpJXQqZ-5kDWdbke6Vj-oe2D2rNfi7kk0FiAN0xlGzzIvKovUKl2Kt7HX6CedTt9Y8Mc9uaDzSoZC6gMwUKYstcPuPee1_96xD1aKBJeuxfbHBpxyFj0qtOeSSM_DRdJrW9eaLqQqhyO59bAXkmywbW5fYs7Bh6Srvt04bpXXd-9vo_vIlYA97YZQxNYmHIxFy7JCsZ1_d0oaKdYjzngMVJwG7UsYig"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Chris</span>
+</div>
+</section>
+<!-- Chat Feed -->
+<section class="p-md space-y-lg max-w-[800px] mx-auto">
+<!-- Tutor Message -->
+<div class="flex flex-col gap-sm items-start">
+<div class="flex items-center gap-sm">
+<span class="font-label-md text-label-md text-tertiary bg-tertiary-container/20 px-2 py-0.5 rounded-full border border-tertiary/20">Tutor</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Sarah • 10:24 AM</span>
+</div>
+<div class="tutor-glow rounded-xl p-md max-w-[85%] text-on-surface">
+<p class="font-body-md text-body-md">Good morning team! I've uploaded the core reference for this week. Today's Resource: <span class="text-primary font-semibold">Typography Guide</span>. Focus on the scale ratios and optical sizing sections.</p>
+</div>
+</div>
+<!-- Resource Card -->
+<div class="flex flex-col gap-sm items-start pl-md border-l border-primary/20 ml-2">
+<div class="bg-surface-container-high rounded-xl p-md w-full max-w-[320px] flex items-center gap-md border border-white/10 hover:bg-surface-container-highest transition-colors cursor-pointer group">
+<div class="w-12 h-12 bg-primary-container/30 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">picture_as_pdf</span>
+</div>
+<div class="flex-1">
+<p class="font-headline-sm text-headline-sm text-on-surface">UI Principles.pdf</p>
+<p class="font-label-md text-label-md text-on-surface-variant">2.4 MB • Shared by Sarah</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">download</span>
+</div>
+</div>
+<!-- Student Message -->
+<div class="flex flex-col gap-sm items-end">
+<div class="flex items-center gap-sm">
+<span class="font-label-md text-label-md text-on-surface-variant">10:45 AM • You</span>
+</div>
+<div class="bg-primary-container/20 border border-primary/20 rounded-xl rounded-tr-none p-md max-w-[85%] text-on-primary-container">
+<p class="font-body-md text-body-md">Could you explain the spacing rules again? Specifically how we should handle the 4px baseline grid in responsive layouts.</p>
+</div>
+</div>
+<!-- Tutor Reply with Code -->
+<div class="flex flex-col gap-sm items-start">
+<div class="flex items-center gap-sm">
+<span class="font-label-md text-label-md text-tertiary bg-tertiary-container/20 px-2 py-0.5 rounded-full border border-tertiary/20">Tutor</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Sarah • 10:48 AM</span>
+</div>
+<div class="tutor-glow rounded-xl p-md max-w-[85%] space-y-md text-on-surface">
+<p class="font-body-md text-body-md">Sure! Think of it as a multiplier. All margins and paddings should be increments of 4 (4, 8, 12, 16...). Here is a quick utility setup for CSS:</p>
+<!-- Code Snippet -->
+<div class="bg-surface-container-lowest rounded-lg p-md font-code-sm text-code-sm text-primary-fixed-dim border border-white/5 relative overflow-hidden">
+<div class="absolute top-2 right-2 flex gap-2">
+<span class="material-symbols-outlined text-xs opacity-50 cursor-pointer hover:opacity-100">content_copy</span>
+</div>
+<pre><code>:root {
+  --grid-unit: 4px;
+  --spacing-sm: calc(var(--grid-unit) * 2); /* 8px */
+  --spacing-md: calc(var(--grid-unit) * 4); /* 16px */
+  --spacing-lg: calc(var(--grid-unit) * 6); /* 24px */
+}</code></pre>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Interaction Area -->
+<div class="fixed bottom-0 w-full z-40 bg-background/80 backdrop-blur-2xl chat-input-shadow">
+<!-- Message Input -->
+<div class="px-md py-sm flex items-center gap-sm">
+<div class="flex-1 bg-surface-container-high rounded-full px-md py-sm flex items-center gap-sm border border-white/10">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">add_circle</button>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface font-body-md placeholder:text-on-surface-variant/50" placeholder="Type a message..." type="text"/>
+<div class="flex items-center gap-sm">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">sticky_note_2</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">mic</button>
+</div>
+</div>
+<button class="w-12 h-12 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+<!-- BottomNavBar -->
+<nav class="w-full flex justify-around items-center px-md pb-safe pt-2 border-t border-white/10">
+<!-- Chat (Active) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary bg-primary-container/20 rounded-xl px-4 py-1 transition-transform active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+<span class="font-label-md text-label-md">Chat</span>
+</a>
+<!-- Resources -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary/80 transition-colors" href="#">
+<span class="material-symbols-outlined">library_books</span>
+<span class="font-label-md text-label-md">Resources</span>
+</a>
+<!-- Tasks -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary/80 transition-colors" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label-md text-label-md">Tasks</span>
+</a>
+</nav>
+</div>
+<script>
+        // Micro-interactions for the input field
+        const input = document.querySelector('input');
+        const sendBtn = document.querySelector('button span[style*="send"]');
+        
+        input.addEventListener('focus', () => {
+            input.parentElement.classList.add('border-primary/40');
+        });
+        
+        input.addEventListener('blur', () => {
+            input.parentElement.classList.remove('border-primary/40');
+        });
+
+        // Simple scroll to bottom on load (simulated)
+        window.scrollTo(0, document.body.scrollHeight);
+    </script>
+</body></html>
