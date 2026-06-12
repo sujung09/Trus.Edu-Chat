@@ -101,6 +101,10 @@ npm run dev
 - Rate limit · XSS sanitize · CSRF
 - 다중 채팅방 / 프로필 이미지 / 첨부 / 음성 / 검색
 
+## 배포
+
+AWS EC2 (Ubuntu) 또는 일반 Ubuntu 서버에 docker compose + nginx 로 배포 — 상세 단계는 `docs/DEPLOY.md` 참조.
+
 ## 스코프 강제
 
 본 프로젝트는 글로벌 (`~/.claude/`, 시스템 Python, `npm i -g`) 을 일절 건드리지 않음. 모든 의존성은 `backend/.venv/`, `frontend/node_modules/` 안에만. 상세는 `CLAUDE.md` § 2 참조.

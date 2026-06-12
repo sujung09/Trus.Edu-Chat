@@ -30,6 +30,11 @@ yarn-error.log*
 .env.local
 .env*.local
 
+# Keys / secrets
+*.pem
+*.key
+*.crt
+
 # Build artifacts
 dist/
 build/
